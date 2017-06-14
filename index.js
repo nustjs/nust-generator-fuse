@@ -9,12 +9,19 @@ module.exports = function (data) {
     tags = tags.map((obj1, idx1) => {
       return obj1.title
     })
+    let cover = obj.cover
+    if (obj.wechat && obj.wechat.share_cover) {
+      cover = obj.wechat.share_cover
+    }
     return {
       title: obj.title,
       desc: obj.desc,
       tags: tags,
       author: obj.author,
-      route: obj.route
+      route: obj.route,
+      type: obj.type,
+      cover: cover,
+      time: obj.timeFromNow
     }
   })
   let ret = {
