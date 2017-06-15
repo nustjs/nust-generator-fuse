@@ -3,6 +3,8 @@ const path = require('path')
  * generator for fusejs
  */
 module.exports = function (data) {
+  let configs = data.appConfigs.fuse
+  if (configs === false) return false
   let targetFile = path.join(this.dirTheme, 'static/data/fuse.json')
   let items = data.data.files.map((obj, idx) => {
     let tags = obj.tags || []
